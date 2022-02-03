@@ -1,0 +1,20 @@
+{{ $sectionID := replace (lower .section.name) " " "-"  }}
+{{ if .section.id }}
+  {{ $sectionID = .section.id }}
+{{ end }}
+
+{{ $author:= site.Data.author }}
+{{ if (index site.Data site.Language.Lang).author }}
+  {{ $author = (index site.Data site.Language.Lang).author }}
+{{ end }}
+
+<div class="container anchor p-lg-5 about-section" id="{{ $sectionID }}">
+ <div class="d-flex" style="height: 520px;">
+  <div class="p-2 embed-responsive" >
+    <iframe class="embed-responsive-item" title="Embedded Content" name="htmlComp-iframe" data-src="" src="https://www-pactoarrubla-com.filesusr.com/html/8700fe_edaaa00b1cb08487959a5edba45c35d2.html" width="100%" height="100%"></iframe>
+  </div>
+  <div class="p-2 embed-responsive" >
+    <iframe class="embed-responsive-item" title="Embedded Content" name="htmlComp-iframe" data-src="" src="https://www-pactoarrubla-com.filesusr.com/html/8700fe_61325babc3dcac8a7d256db3a18fa0ad.html" width="100%" height="100%"></iframe>
+  </div>
+ </div>
+</div>
