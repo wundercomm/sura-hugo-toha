@@ -31,6 +31,14 @@
     
     <!--================= add analytics if enabled =========================-->
     {{- partial "analytics.html" . -}}
+  
+
+    <!--=================== Omnicanalidad ==============================-->=
+    {{/* add favicon only if the site author has provided the the favicon */}}
+    {{ if site.Params.tripetto.enabled }}
+      {{ partial "tripetto.html" . }}
+    {{end}}
+
   </head>
   <body data-spy="scroll" data-target="#top-navbar" data-offset="100">
 
