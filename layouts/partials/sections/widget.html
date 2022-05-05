@@ -8,13 +8,45 @@
   {{ $author = (index site.Data site.Language.Lang).author }}
 {{ end }}
 
+<script src="https://www.suraenlinea.com/widgets/credito-protegido-cotizar/plan-credito-260-380/soat-cotizar.min.js"></script>
+<script src="https://www.suraenlinea.com/widgets/v2/soat/soat.min.js"></script>
 <div class="container anchor p-lg-5 about-section" id="{{ $sectionID }}">
  <div class="d-flex" style="height: 520px;">
   <div class="p-2 embed-responsive" >
-    <iframe class="embed-responsive-item" title="Embedded Content" name="htmlComp-iframe" data-src="" src="https://www-pactoarrubla-com.filesusr.com/html/8700fe_edaaa00b1cb08487959a5edba45c35d2.html" width="100%" height="100%"></iframe>
+    <div id="cpc1"></div>
   </div>
   <div class="p-2 embed-responsive" >
-    <iframe class="embed-responsive-item" title="Embedded Content" name="htmlComp-iframe" data-src="" src="https://www-pactoarrubla-com.filesusr.com/html/8700fe_61325babc3dcac8a7d256db3a18fa0ad.html" width="100%" height="100%"></iframe>
+    <div id="sel-widget"></div>
   </div>
  </div>
 </div>
+
+<script>
+  function fn() {
+    var cpcCotizar = document.createElement('plan-credito-cotizar');
+    cpcCotizar.setAttribute('codigo-canal', '7771');
+    cpcCotizar.setAttribute('codigo-asesor', '{{ $author.sura.codigoAsesor }}');
+    cpcCotizar.setAttribute('utm-source', 'wundercomm.{{$author.name}}.2022');
+    cpcCotizar.setAttribute('utm-campaign', 'credito-protegido-widget');
+    cpcCotizar.setAttribute('utm-medium', 'asesores-widget');
+    cpcCotizar.setAttribute('utm-content', '10942');
+    var cpc1 = document.getElementById('cpc1');
+    cpc1.appendChild(cpcCotizar);
+   angular.bootstrap(cpc1, ['plan.credito.260.380']);
+}
+document.addEventListener('DOMContentLoaded', fn, true);
+</script>
+
+<script>
+  function initSuraWidget() {
+  SuraWidgetSoat.mount({
+  'codigo-canal': '7771',
+  'codigo-asesor': '{{ $author.sura.codigoAsesor }}',
+  'tenant': 'sura',
+  'utm-source': 'wundercomm.{{$author.name}}.2022',
+  'utm-campaign': 'wundercomm.{{$author.name}}.2022.soat'
+  }, 'sura.widget.soat.300.400',
+  document.getElementById('sel-widget'));
+  }
+  document.addEventListener('DOMContentLoaded', initSuraWidget, true);
+</script>
