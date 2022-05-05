@@ -34,14 +34,12 @@
   
 
     <!--=================== Omnicanalidad ==============================-->=
-    {{/* add favicon only if the site author has provided the the favicon */}}
     {{ if site.Params.tripetto.enabled }}
       {{ partial "tripetto.html" . }}
     {{end}}
 
   </head>
   <body data-spy="scroll" data-target="#top-navbar" data-offset="100">
-
     <!--- NAVBAR ------------------------->
     {{- partial "navigators/navbar.html" . -}}
 
@@ -74,6 +72,12 @@
         {{ end }}
       {{ end }}
     {{ end }}
+
+
+    {{ if site.Params.tripetto.enabled }}
+      <div id="tripetto"></div>
+    {{end}}
+    
 
     <!--- ADD FOOTER ----------------------->
     {{ $footerTemplate:= site.Params.footer.template | default "footer.html" }}
